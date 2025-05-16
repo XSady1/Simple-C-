@@ -1,0 +1,20 @@
+#BASIC#
+6 2 77 43				6 and 43
+1 2 3 4					2 and 3
+10 5 20 15				10 and 15
+100 200 50 300				100 and 200
+-5 0 5 10				0 and 5
+
+#EDGE#
+5 5 1 10				5 and 5
+8 8 8 9 				There are no two middle numbers.
+7 7 7 7 				There are no two middle numbers.
+
+#TRICKY ORDER#
+40 10 20 30				20 and 30
+99 88 77 66				77 and 88
+3 100 1 2				2 and 3
+
+#LONG LONG#
+
+23535626456 235252 2356 -23525 		2456 and 235252
