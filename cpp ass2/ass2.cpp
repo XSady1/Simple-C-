@@ -31,6 +31,15 @@ long long FindMax(long long a, long long b) { // fx to find max num among 2 nums
         return b;
 }
 
+void AssignMiddle(long long value, long long smallest, long long largest, long long& middle1, long long& middle2) { // long long because i want any number to work
+    if (value != smallest && value != largest) {								    // value not smallest or largest
+        if (middle1 == -1)											                // if mid1 unassigned
+            middle1 = value;											            // assign value to mid1
+        else
+            middle2 = value;											           // if mid1 is taken assign mid2
+    }
+}
+
 int main() {
     int num1, num2, num3, num4;
     
@@ -38,46 +47,16 @@ cout << "Enter 4 numbers: ";
 
 cin >> num1 >> num2 >> num3 >> num4;
 
-
-
 long long smallest, largest, middle1 = -1, middle2 = -1; // long long because i want any number to work
 
         smallest = FindMin(FindMin(num1, FindMin(num2, num3)), num4); // find min num among 4 nums
         largest  = FindMax(FindMax(num1, FindMax(num2, num3)), num4); // find max num among 4 nums
  
+	AssignMiddle(num1, smallest, largest, middle1, middle2);
+	AssignMiddle(num2, smallest, largest, middle1, middle2);
+	AssignMiddle(num3, smallest, largest, middle1, middle2);
+	AssignMiddle(num4, smallest, largest, middle1, middle2);
  
- 
-  
-    if (num1 != smallest && num1 != largest) { // num1 not smallest or largest
-        if (middle1 == -1)                     // is mid1 assigned?
-            middle1 = num1;                    // assign mid1
-        else
-            middle2 = num1;                    // otherwise assign to mid2
-    }
-    
-    
-    
-    if (num2 != smallest && num2 != largest) { // num2 not smallest or largest
-        if (middle1 == -1)                     
-            middle1 = num2;                    
-        else
-            middle2 = num2;                    
-    }
-    
-    if (num3 != smallest && num3 != largest) { // num3 not smallest or largest
-        if (middle1 == -1)       
-            middle1 = num3;      
-        else
-            middle2 = num3;      
-    }
-    
-    if (num4 != smallest && num4 != largest) { // num4 not smallest or largest
-        if (middle1 == -1)       
-            middle1 = num4;     
-        else
-            middle2 = num4;      
-    }
-    
      if (middle1 == -1 || middle2 == -1) // if no middle found ex.: 6 6 6 6 // during testing if numbers are the same an error could ocour 
             cout << "There are no two middle numbers." << endl;
             
